@@ -1,0 +1,52 @@
+﻿<Window x:Class="GospodarkaMagazynowa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GospodarkaMagazynowa"
+        xmlns:hurtownia="clr-namespace:GospodarkaMagazynowa.UserControls.Hurtownia"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="MainWindow" Height="900" Width="525">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+    <Grid>
+        <Grid.DataContext>
+            <local:MainViewModel/>
+        </Grid.DataContext>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Border Background="BlueViolet">
+            <StackPanel Orientation="Vertical" Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Nazwa zakladu"/>
+                    <Label Content="GOSPODARKA MAGAZYNOWA"/>
+                    <Label Content="Nazwa Firmy"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="Ulica"></Label>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" BorderThickness="5" BorderBrush="Aqua" Background="Aquamarine">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="PODSYSTEM" FontSize="25"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <hurtownia:HurtowniaUserControl Visibility="{Binding Path=ShowHurtowniaUserControl,  Converter={StaticResource BoolToVis}}"/>
+                        <hurtownia:ContractorUserControl  Visibility="{Binding Path=ShowContractorUserControl,  Converter={StaticResource BoolToVis}}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" BorderThickness="5" Background="Blue" BorderBrush="Black">
+            <Label Content="Opcje"/>
+        </Border>
+    </Grid>
+</Window>

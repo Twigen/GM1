@@ -1,0 +1,32 @@
+﻿<Window x:Class="GM1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GM1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.DataContext>
+            <local:MainViewModel/>
+        </Grid.DataContext>
+        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical">
+            <StackPanel>
+            <Label Content="Gospodarka Magazynowa" FontSize="20"></Label>
+        </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+            <Label Content="Nazwa firmy"></Label>
+            <Label Content="Ulica"></Label>
+            <Label Content="Ulica"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Zmiana daty :" FontSize="30"/>
+            <TextBox Text="dd:mm:rrrr" FontSize="30"></TextBox>
+            <Button Content="Akceptuj" FontSize="25" Command="{Binding Path=ShowGospodarkaMagazynowaCommand}"></Button>
+        </StackPanel>
+        <Button Content="Kontynuuj" Width="100" Height="100" Command="{Binding Path=ShowGospodarkaMagazynowaCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

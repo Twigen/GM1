@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="GospodarkaMagazynowa.UserControls.Hurtownia.HurtowniaUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GospodarkaMagazynowa.UserControls"
+             xmlns:hurtownia="clr-namespace:GospodarkaMagazynowa.ViewModels.Hurtownia"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.DataContext>
+            <hurtownia:HurtowniaViewModel/>
+        </Grid.DataContext>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Row="1" Content="1. OPIS SYSTEMU" HorizontalContentAlignment="Left" FontSize="25" Command="{Binding Path=ShowInfoCommand}"/>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Content="2. KONTRACHENT" FontSize="25" Command="{Binding Path=ShowContractorCommand}" HorizontalContentAlignment="Left"></Button>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Content="3. MAGAZYN" FontSize="25" Command="{Binding Path=ShowStorehouseCommand}" HorizontalContentAlignment="Left"></Button>
+        </Grid>
+        <Grid Grid.Row="3">
+        </Grid>
+        <Grid Grid.Row="5">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="FUNKCJE SYSTEMOWE" FontSize="25"/>
+                <Expander>
+                    <StackPanel>
+                        <Button FontSize="30" Content="1. Opis zagadnienia"/>
+                        <Button FontSize="30" Content="2. Reorganizacja BAZ DANYCH"/>
+                        <Button FontSize="30" Content="3. Kontrola ZBIOROW"/>
+                        <Button FontSize="30" Content="4. Numery dokumentow"/>
+                        <Button FontSize="30" Content="5. Kopia BEZPIECZENSTWA"/>
+                        <Button FontSize="30" Content="6. Rezerwa"/>
+                        <Button FontSize="30" Content="7. Nazwa zakladu"/>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Button FontSize="30" HorizontalContentAlignment="Left" Content="Nie oprogramowano" Command="{Binding Path=MagInfoCommand}"/>
+        </Grid>
+    </Grid>
+</UserControl>
