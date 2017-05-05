@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GospodarkaMagazynowa.Events;
 
 namespace GospodarkaMagazynowa.ViewModels.Hurtownia
 {
@@ -31,7 +32,7 @@ namespace GospodarkaMagazynowa.ViewModels.Hurtownia
 
         private void ExecuteAddContractorCommandAction()
         {
-         //   new AddContractorView().Show();
+          
         }
 
         private RelayCommand _showContractorListCommand;
@@ -51,5 +52,21 @@ namespace GospodarkaMagazynowa.ViewModels.Hurtownia
           //  new MainView().Show();
         }
 
+       private RelayCommand _returnToHurtowniaCommand;
+
+       public RelayCommand ReturnToHurtowniaCommand
+       {
+           get
+           {
+               if (_returnToHurtowniaCommand == null)
+                   _returnToHurtowniaCommand = new RelayCommand(ExecuteReturnToHurtowniaCommandAction);
+               return _returnToHurtowniaCommand;
+           }
+       }
+
+       private void ExecuteReturnToHurtowniaCommandAction()
+       {
+           MessengerInstance.Send<ShowUserControls>(new ShowUserControls {_showHurtownia = true});
+       }
     }
 }

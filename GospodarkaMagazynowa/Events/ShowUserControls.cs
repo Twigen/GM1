@@ -10,5 +10,6 @@ namespace GospodarkaMagazynowa.Events
     {
         public bool _showHurtownia { get; set; }
         public bool _showContractor { get; set; }
+        
     }
 }
